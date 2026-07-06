@@ -65,7 +65,7 @@ export default function Hero() {
           <Reveal delay={0.2} yOffset={25}>
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-gray-300 leading-tight mb-12 tracking-wide">
               Especialista em I.A <br />
-              Automação e Otimização<br />
+              Automação, Otimização<br />
               <span className="text-white font-medium">Diagnóstico de Processos.</span>
             </h2>
           </Reveal>

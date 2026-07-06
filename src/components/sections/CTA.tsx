@@ -12,6 +12,31 @@ export default function CTA() {
       <div className="absolute right-[-10%] top-[-10%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-techCyan/25 to-techBlue/25 blur-[140px] pointer-events-none" />
       <div className="absolute left-[-15%] bottom-[-20%] w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-purple-600/15 to-pink-500/10 blur-[130px] pointer-events-none" />
 
+      {/* Right Column: Absolutely positioned photo next to the text on desktop.
+          On smaller screens, it becomes an atmospheric colored overlay behind the text.
+          Using the original colored avatar.png and displaying only its upper half.
+          Direct child of section for full-bleed borders on mobile.
+      */}
+      <div className="absolute right-0 bottom-0 top-0 w-full lg:w-[45%] opacity-45 lg:opacity-100 pointer-events-none z-10 overflow-hidden">
+        {/* Ambient colorful backdrop glow behind the photo to blend it beautifully */}
+        <div className="absolute right-[-10%] top-[10%] w-[450px] h-[450px] rounded-full bg-gradient-to-br from-techCyan/40 via-techBlue/30 to-purple-600/30 blur-[90px] opacity-75" />
+        
+        <div className="relative w-full h-full">
+          {/* Image element cropped to its upper half (height 200%, object-top, object-cover) */}
+          <img
+            src="/avatar.png"
+            alt="Gabriel"
+            className="absolute top-0 right-0 w-full lg:w-[85%] h-[200%] object-cover object-top mix-blend-lighten lg:mix-blend-normal opacity-65 lg:opacity-90 transition-transform duration-700"
+          />
+          
+          {/* Left side fade to black for text contrast (stronger on mobile, softer on desktop) */}
+          <div className="absolute inset-y-0 left-0 w-[75%] lg:w-48 bg-gradient-to-r from-[#050505] via-[#050505]/40 to-transparent z-20" />
+          
+          {/* Bottom fade to black to ground the image */}
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent z-20" />
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center min-h-[500px]">
           
@@ -42,7 +67,7 @@ export default function CTA() {
             <Reveal delay={0.4} yOffset={20}>
               <div className="flex flex-wrap items-center gap-6 mb-12">
                 <a
-                  href="mailto:gabriel@example.com"
+                  href="https://wa.me/5534998358625"
                   className="inline-flex items-center justify-center px-10 py-5 rounded-full bg-gradient-to-r from-techCyan via-techBlue to-purple-600 text-white font-bold text-sm hover:brightness-110 hover:shadow-[0_0_30px_rgba(0,240,255,0.35)] transition-all duration-300 gap-2 active:scale-95"
                 >
                   Iniciar conversa
@@ -80,29 +105,8 @@ export default function CTA() {
             </Reveal>
           </div>
 
-          {/* Right Column: Absolutely positioned photo next to the text on desktop.
-              On smaller screens, it becomes an atmospheric colored overlay behind the text.
-              Using the original colored avatar.png and displaying only its upper half.
-          */}
-          <div className="absolute right-0 bottom-0 top-0 w-full lg:w-[45%] opacity-25 lg:opacity-100 pointer-events-none z-10 overflow-hidden">
-            {/* Ambient colorful backdrop glow behind the photo to blend it beautifully */}
-            <div className="absolute right-[-10%] top-[10%] w-[450px] h-[450px] rounded-full bg-gradient-to-br from-techCyan/40 via-techBlue/30 to-purple-600/30 blur-[90px] opacity-75" />
-            
-            <div className="relative w-full h-full">
-              {/* Image element cropped to its upper half (height 200%, object-top, object-cover) */}
-              <img
-                src="/avatar.png"
-                alt="Gabriel"
-                className="absolute top-0 right-0 w-full lg:w-[85%] h-[200%] object-cover object-top mix-blend-lighten lg:mix-blend-normal opacity-40 lg:opacity-90 transition-transform duration-700"
-              />
-              
-              {/* Left side fade to black for text contrast (stronger on mobile, softer on desktop) */}
-              <div className="absolute inset-y-0 left-0 w-full lg:w-48 bg-gradient-to-r from-[#050505] via-[#050505]/75 to-transparent z-20" />
-              
-              {/* Bottom fade to black to ground the image */}
-              <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent z-20" />
-            </div>
-          </div>
+          {/* Right Column: Empty spacer on desktop to match layout */}
+          <div className="hidden lg:block lg:col-span-5 h-full min-h-[500px]" />
 
         </div>
       </div>

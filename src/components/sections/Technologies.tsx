@@ -43,7 +43,7 @@ export default function Technologies() {
           </Reveal>
           <Reveal delay={0.2}>
             <span className="font-mono text-xs text-gray-500">
-              [ Domínio técnico e arquiteturas modernas ]
+              [ Lista de um pouco das coisas que eu tenho domínio. ]
             </span>
           </Reveal>
         </div>
