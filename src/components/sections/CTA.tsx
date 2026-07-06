@@ -22,11 +22,11 @@ export default function CTA() {
         <div className="absolute right-[-10%] top-[10%] w-[450px] h-[450px] rounded-full bg-gradient-to-br from-techCyan/40 via-techBlue/30 to-purple-600/30 blur-[90px] opacity-75" />
         
         <div className="relative w-full h-full">
-          {/* Image element cropped to its upper half (height 200%, object-top, object-cover) */}
+          {/* Image element cropped to match Hero section (height 100%, object-center, object-cover) */}
           <img
             src="/avatar.png"
             alt="Gabriel"
-            className="absolute top-0 right-0 w-full lg:w-[85%] h-[200%] object-cover object-top mix-blend-lighten lg:mix-blend-normal opacity-65 lg:opacity-90 transition-transform duration-700"
+            className="absolute top-0 right-0 w-full lg:w-[85%] h-full object-cover object-center mix-blend-lighten lg:mix-blend-normal opacity-65 lg:opacity-90 transition-transform duration-700"
           />
           
           {/* Left side fade to black for text contrast (stronger on mobile, softer on desktop) */}

@@ -22,11 +22,11 @@ export default function Hero() {
           alt="Gabriel"
           /* 
             AJUSTE MANUAL DO ENQUADRAMENTO E EFEITOS DA FOTO:
-            - 'object-center': foca no centro. Altere para 'object-top' para focar no topo ou 'object-bottom' para a base.
+            - 'object-[center_15%]': foca no ponto ideal verticalmente (15%).
             - 'brightness-[0.75]': brilho no mobile (75%). 'lg:brightness-95': brilho no PC (95%).
             - 'contrast-[1.05]': contraste de 105%.
           */
-          className="w-full h-full object-cover object-center brightness-[0.75] lg:brightness-95 contrast-[1.05]"
+          className="w-full h-full object-cover object-[center_15%] brightness-[0.75] lg:brightness-95 contrast-[1.05]"
           /* 
             AJUSTE MANUAL DO ZOOM (Framer Motion):
             - scale: 1.25 (zoom inicial na animação de entrada = 125%)

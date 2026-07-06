@@ -121,7 +121,7 @@ export default function Projects() {
       impact:
         "Asssitente virtual que atende o whatsapp, site ou instagram 24 horas por dia. Faz o follow-up do cliente ao longo do tempo de forma automática.",
       link: "#",
-      video: "https://xuds2j4eb9uem7yg.public.blob.vercel-storage.com/porfolio-agente.mov", // Insira aqui a URL do Vercel Blob
+      video: "https://xuds2j4eb9uem7yg.public.blob.vercel-storage.com/porfolio-atendimento.mov", 
       graphic: (
         <svg
           className="w-full h-full text-white/5 group-hover:text-techBlue/10 transition-colors duration-700"
