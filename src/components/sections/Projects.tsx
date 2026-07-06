@@ -1,11 +1,13 @@
 "use strict";
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Play } from "lucide-react";
 import Reveal from "../Reveal";
 
 export default function Projects() {
+  const [activeVideoIdx, setActiveVideoIdx] = useState<number | null>(null);
   const projects = [
     {
       num: "01",
@@ -284,15 +286,40 @@ export default function Projects() {
                   <div className="absolute inset-0 opacity-[0.01] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
                   {/* Diagram or Video component */}
-                  <div className="w-full h-full flex items-center justify-center scale-95 group-hover:scale-100 transition-transform duration-700">
-                    {project.video ? (
+                  <div className="w-full h-full flex items-center justify-center scale-95 group-hover:scale-100 transition-transform duration-700 relative">
+                    {activeVideoIdx === idx ? (
                       <video
                         src={project.video}
+                        autoPlay
                         controls
                         className="w-full h-full object-contain rounded-xl shadow-2xl bg-black/40 border border-white/5"
                       />
                     ) : (
-                      project.graphic
+                      <>
+                        {project.video ? (
+                          <video
+                            src={project.video}
+                            preload="metadata"
+                            className="w-full h-full object-contain rounded-xl shadow-2xl bg-black/40 border border-white/5 opacity-60 group-hover:opacity-85 transition-opacity duration-500"
+                          />
+                        ) : (
+                          project.graphic
+                        )}
+                        {project.video && (
+                          <button
+                            onClick={() => setActiveVideoIdx(idx)}
+                            className="absolute inset-0 flex flex-col items-center justify-center bg-black/10 group-hover:bg-black/25 transition-colors duration-500 rounded-xl group/play-btn"
+                            aria-label="Play video demo"
+                          >
+                            <div className="w-16 h-16 rounded-full glassmorphism flex items-center justify-center border border-white/10 group-hover/play-btn:border-techCyan/50 group-hover/play-btn:scale-110 group-hover/play-btn:shadow-[0_0_30px_rgba(0,240,255,0.2)] transition-all duration-300">
+                              <Play size={24} className="text-white fill-white/10 group-hover/play-btn:text-techCyan group-hover/play-btn:fill-techCyan/20 transition-all duration-300 ml-1" />
+                            </div>
+                            <span className="mt-4 text-xs font-mono tracking-widest text-gray-400 group-hover/play-btn:text-white transition-colors duration-300 uppercase">
+                              [ Assistir Demo ]
+                            </span>
+                          </button>
+                        )}
+                      </>
                     )}
                   </div>
                 </div>

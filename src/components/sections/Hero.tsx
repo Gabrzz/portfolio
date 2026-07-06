@@ -1,6 +1,7 @@
 "use strict";
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import Reveal from "../Reveal";
@@ -17,26 +18,32 @@ export default function Hero() {
         {/* Iluminação azul sutil por trás da foto */}
         <div className="absolute inset-0 bg-radial-gradient from-techBlue/10 via-transparent to-transparent opacity-60" />
         
-        <motion.img
-          src="/avatar.png"
-          alt="Gabriel"
-          /* 
-            AJUSTE MANUAL DO ENQUADRAMENTO E EFEITOS DA FOTO:
-            - 'object-[center_15%]': foca no ponto ideal verticalmente (15%).
-            - 'brightness-[0.75]': brilho no mobile (75%). 'lg:brightness-95': brilho no PC (95%).
-            - 'contrast-[1.05]': contraste de 105%.
-          */
-          className="w-full h-full object-cover object-[center_15%] brightness-[0.75] lg:brightness-95 contrast-[1.05]"
+        <motion.div
+          className="w-full h-full relative"
           /* 
             AJUSTE MANUAL DO ZOOM (Framer Motion):
-            - scale: 1.25 (zoom inicial na animação de entrada = 125%)
-            - scale: 1.20 (zoom final estático da imagem = 120%, ou seja, 20% de zoom)
-            - Para diminuir ou aumentar o zoom base, altere o valor do 'scale' no 'animate' (ex: 1.0 para sem zoom, 1.1 para 10% zoom, 1.3 para 30%)
+            - scale: 1.20 (zoom inicial na animação de entrada = 120%)
+            - scale: 1.15 (zoom final estático da imagem = 115%)
           */
           initial={{ scale: 1.20, opacity: 0 }}
           animate={{ scale: 1.15, opacity: 1 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        />
+        >
+          <Image
+            src="/avatar.png"
+            alt="Gabriel"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            /* 
+              AJUSTE MANUAL DO ENQUADRAMENTO E EFEITOS DA FOTO:
+              - 'object-[center_15%]': foca no ponto ideal verticalmente (15%).
+              - 'brightness-[0.75]': brilho no mobile (75%). 'lg:brightness-95': brilho no PC (95%).
+              - 'contrast-[1.05]': contraste de 105%.
+            */
+            className="object-cover object-[center_15%] brightness-[0.75] lg:brightness-95 contrast-[1.05]"
+          />
+        </motion.div>
         
         {/* Gradiente escuro no mobile para garantir legibilidade dos textos sobrepostos */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/45 via-[#050505]/80 to-[#050505] lg:hidden z-10" />

@@ -1,6 +1,7 @@
 "use strict";
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "../Reveal";
@@ -23,9 +24,11 @@ export default function CTA() {
         
         <div className="relative w-full h-full">
           {/* Image element cropped to match Hero section (height 100%, object-center, object-cover) */}
-          <img
+          <Image
             src="/avatar.png"
             alt="Gabriel"
+            fill
+            sizes="(max-width: 1024px) 100vw, 45vw"
             className="absolute top-0 right-0 w-full lg:w-[85%] h-full object-cover object-center mix-blend-lighten lg:mix-blend-normal opacity-65 lg:opacity-90 transition-transform duration-700"
           />
           
